@@ -1,0 +1,67 @@
+{
+	"info": {
+		"_postman_id": "cc9920e1-7be3-4491-b669-4794d05edee0",
+		"name": "Exam",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31659194"
+	},
+	"item": [
+		{
+			"name": "Get result",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/exam/api/result.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"exam",
+						"api",
+						"result.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add result",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Tom",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "m",
+							"type": "text"
+						},
+						{
+							"key": "result",
+							"value": "4",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Base url exam}}/result.php",
+					"host": [
+						"{{Base url exam}}"
+					],
+					"path": [
+						"result.php"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
