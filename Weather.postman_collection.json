@@ -1,0 +1,99 @@
+{
+	"info": {
+		"_postman_id": "25e48185-c046-4300-a258-e4c0436aab12",
+		"name": "Weather",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31659194"
+	},
+	"item": [
+		{
+			"name": "Weather req",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const city = 'New York';\r",
+							"\r",
+							"pm.sendRequest(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=6d3cc75f06af6a7e84cf760479cbd892`, (err, res) => {\r",
+							"    pm.globals.set('lat', res.json()[0].lat);\r",
+							"    pm.globals.set('lon', res.json()[0].lon);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.openweathermap.org/data/2.5/weather?lat={{lat}}&lon={{lon}}&appid=6d3cc75f06af6a7e84cf760479cbd892",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "{{lat}}"
+						},
+						{
+							"key": "lon",
+							"value": "{{lon}}"
+						},
+						{
+							"key": "appid",
+							"value": "6d3cc75f06af6a7e84cf760479cbd892"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "City geo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.openweathermap.org/geo/1.0/direct?q=Minsk&limit=1&appid=6d3cc75f06af6a7e84cf760479cbd892",
+					"protocol": "http",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"geo",
+						"1.0",
+						"direct"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "Minsk"
+						},
+						{
+							"key": "limit",
+							"value": "1"
+						},
+						{
+							"key": "appid",
+							"value": "6d3cc75f06af6a7e84cf760479cbd892"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
